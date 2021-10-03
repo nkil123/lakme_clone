@@ -173,7 +173,7 @@ btn[1].onclick = () => {
     l++;
     for (var i of div) {
         if (l == 0) {
-            i.style.left = '-50%';
+            i.style.left = '-100%';
         }
         if (l == 1) {
             i.style.left == '-100%';
