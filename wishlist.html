@@ -5,126 +5,199 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WISHLIST</title>
-    <script src="https://kit.fontawesome.com/f001449fdc.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<style>
-    #shoppingcart {
-        margin: 5% 7% 5% 5%;
-        display: grid;
-        grid-template-columns: 20% 20% 20% 20%;
-        grid-gap: 8%;
-        justify-content: center;
-        text-align: center;
-        padding-bottom: 50px;
-    }
-    
-    .wishlishtdiv {
-        border: 1px solid black;
-        width: fit-content;
-    }
-    
-    #tophead {
-        font-size: 25px;
-    }
-    
-    footer {
-        clear: both;
-        position: relative;
-        background-color: black;
-        height: 100px;
-    }
-    
-    #parafooter {
-        color: white;
-    }
-    
-    #footerbottom {
-        margin-left: 5%;
-        display: flex;
-        padding-top: 2%;
-    }
-    
-    .wishlisticon {
-        position: relative;
-        right: 43%;
-        padding-top: 5%;
-    }
-</style>
+    <title>Document</title>
+    <style>
+        #wishlist {
+            font-family: "Roboto", sans-serif;
+            width: 100%;
+            text-align: center;
+        }  
 
+        #head,#newlist{
+             display : flex ; 
+         }
+         #head{
+             float: left;
+         }
+         #newlist{
+             float: right;
+         }
+
+        #newlist > button {
+            background-color: orangered;
+            cursor: pointer;
+            padding: 2% 1%;
+        }
+
+        .flex {
+            display: flex;
+    
+        }
+
+        .collapsible {
+            background-color: white;
+            cursor: pointer;
+            padding: 18px;
+            width: auto;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .content {
+            padding: 20%;
+            display: none;
+            overflow: hidden;
+            background-color: white;
+
+        }
+
+        .dropbtn {
+
+            color: black;
+            font-size: x-large;
+            border: none;
+            font-weight: 20%;
+            background: transparent;
+            cursor: pointer;
+            display: inline-block;
+            align-content: flex;
+        }
+
+        .dropbtn:hover,
+        .dropbtn:focus {
+            color: rgb(187, 11, 11);
+        }
+
+        .dropdown {
+            position: fixed;
+            display: flex;
+            padding-left: 81%;
+            height: fit-content;
+            margin-top: 13px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: left;
+            background-color: #f1f1f1;
+            min-width: 160px;
+            overflow: hidden;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown a:hover {
+            background-color: #ddd;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
 
 <body>
-    <header id="header" class="fixed-top">
-
-        <div class="openMenu"><i class="fas fa-bars"></i></div>
-        <a href="lakme.html" class="logo"><img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/files/logo_37106f0a-2cdf-4ed0-9a97-33ad520b6682_155x.png?v=1599222024" alt=""></a>
-
-        <div class="left">
-
-            <div class="far fa-heart" id="wishlistpop"></div>
-            <div class="fas fa-user "></div>
-            <div class="fas fa-search" id="searchi"></div>
-            <div class="fas fa-shopping-bag" id="cart_open"></div>
-
+    <div id="wishlist">
+        <div id="head">
+            <p>My Wishlist</p>
         </div>
 
-
-    </header>
-
-    <p id="tophead">MY WISHLIST</p>
-    <hr>
-    <div id="shoppingcart"></div>
-    <footer class="bottom">
-        <div id="footerbottom">
-            <div class="logo">
-                <img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/files/logo_155x_2x_36903a57-eff3-46a2-b04e-c7a9465ece1d_medium.png?v=1632222917" />
-            </div>
-            <div>
-                <p id="parafooter"> &nbsp; FOLLOW LATEST UPDATES & NEW LAUNCHES</p>
-            </div>
-
+        <div id="newlist">
+            <button onclick = "Add()"> + ADD A NEW LIST</button>
         </div>
-    </footer>
-    <script src="script.js"></script>
+    </div>
+
+    <div> 
+        <input id = "name"  type = "text"/>
+         <h3 id = "output"></h3> 
+       
+    </div>
+      
+    <hr/>
+    <div class="flex">
+        <div>
+            <button class="collapsible" type="button">UNTITLED LIST</button>
+            <div class="content">
+                <p>This list is empty</p>
+            </div>
+        </div>
+
+        <div>
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">...</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a>Edit name</a>
+                    <a>Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>   
+    
+<hr/>
+        <!-- <button type="button" class="collapsible">UNTITLED LIST</button>
+        <div class="content">
+            <p>This list is empty</p>
+        </div>
+        <div class="dropdown">
+            <button onclick="myFunction()" class="dropbtn">...</button>
+            <div id="myDropdown" class="dropdown-content">
+                <a>Edit name</a>
+                <a>Delete</a>
+            </div>
+        </div> -->
+        
+   
+    <script>  
+
+           function Add(){
+                var input = document.getElementById("name").value ;
+                document.getElementById("output").textContent = input ;   
+                               
+           }
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+    
+        for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
+            });
+        }
+    
+        /* When the user clicks on the button, 
+    toggle between hiding and showing the dropdown content */
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+    
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
 </body>
 
 </html>
-<script>
-    var parent = document.getElementById("shoppingcart");
-    var carti = JSON.parse(localStorage.getItem("wishlist"));
-    var count = 0;
-
-    function showProducts(d) {
-        carti.forEach(function(product) {
-
-
-
-            count++
-            let div = document.createElement("div");
-            div.className = "wishlishtdiv"
-            var icon = document.createElement("i")
-            icon.className = "fas fa-heart wishlisticon";
-
-            let img = document.createElement("img");
-
-            img.src = product.image;
-
-            let product_name = document.createElement("p");
-            product_name.innerHTML = product.name;
-
-            let product_price = document.createElement("p");
-            product_price.innerHTML = product.price;
-
-
-
-
-
-            div.append(icon, img, product_name, product_price)
-
-            parent.append(div);
-
-        })
-    }
-    showProducts()
-</script>
