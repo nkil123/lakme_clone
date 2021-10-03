@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USER</title>
+
+    <style>
+        p {
+            margin-top: 22%;
+            text-align: center;
+            font-size: 28px;
+            letter-spacing: 0.1em;
+        }
+        
+        .btn {
+            width: 100%;
+        }
+        
+        .fb {
+            background-color: #3B5998;
+            ;
+            width: 16%;
+            height: 50px;
+            font-size: 15px;
+            color: white;
+            font-family: 'Times New Roman', Times, serif;
+            margin-left: 33%;
+            border: none;
+        }
+        
+        .google {
+            background-color: rgb(253, 19, 50);
+            width: 16%;
+            height: 50px;
+            font-size: 15px;
+            color: white;
+            font-family: 'Times New Roman', Times, serif;
+            margin-left: 10px;
+            border: none;
+        }
+        
+        .fb:hover,
+        .google:hover {
+            cursor: pointer;
+        }
+        
+        a {
+            color: white;
+            width: 50px;
+            height: 15px;
+            font-size: 30px;
+            margin: 5px 2px;
+        }
+        
+        h3 {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: 100;
+            text-align: center;
+        }
+        
+        span {
+            text-decoration: underline;
+        }
+        
+        @media screen and (max-width:640px) {
+            .fb {
+                display: ruby-text;
+            }
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+
+<body>
+
+    <p>LOGIN</p>
+    <div class="btn">
+        <button onclick="login()" class="fb">  login    </button>
+        <span> <button  onclick="logout()" class="google">   sign-up</button> </span>
+
+
+    </div>
+
+</body>
+
+</html>
+<script>
+    function login() {
+        window.location.href = "login.html"
+    }
+
+    function logout() {
+        window.location.href = "sign_up.html"
+    }
+</script>

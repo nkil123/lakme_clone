@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+        }
+        
+        #container {
+            width: 80%;
+            height: 700px;
+            background-image: url("https://img.freepik.com/free-photo/cosmetics-arranged-dusty-dark-background_23-2148181475.jpg?size=626&ext=jpg");
+            background-size: cover;
+            margin: auto;
+        }
+        
+        .sinup {
+            margin: auto;
+            width: 40%;
+            height: 7%;
+            color: coral;
+            text-align: center;
+            font-size: 30px;
+        }
+        
+        #block {
+            margin-left: 50%;
+            /* margin: auto; */
+            margin-top: 20px;
+            border: 1px solid white;
+            background-color: white;
+            width: 50%;
+            height: 100%;
+            margin-top: 30px;
+        }
+        
+        #form {
+            border: none;
+            font-size: 20px;
+            margin: 20px;
+        }
+        
+        #form>input,
+        #form>lable {
+            margin: 10px;
+            padding: 5px;
+            width: 60%;
+        }
+        
+        #submit {
+            margin: 15px;
+            padding: 6px;
+            background-color: coral;
+            width: 40%;
+        }
+        
+        .heading {
+            font-size: medium;
+            font-weight: bolder;
+            color: slategrey;
+        }
+        
+        .button-clr {
+            color: black;
+            font-weight: bolder;
+        }
+        
+        .block {
+            text-align: center;
+        }
+        
+        .bd-color {
+            margin-top: 15px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+
+
+        <div id="block" class="block">
+
+            <div>
+                <div id="no-background">
+                    <img class='bd-color' src="https://tse1.mm.bing.net/th?id=OIP.7rzuRz13YWJv-vRFdDRWugAAAA&pid=Api&P=0&w=391&h=93" />
+                </div>
+                <div class="sinup">
+                    <h3>SignUp</h3>
+                </div>
+
+                <form onsubmit="signup(event)" id="form">
+
+                    <label for="name">Enter your name</label><br>
+                    <input type="text" id="name"><br><br>
+
+                    <label for="email">Enter your Email</label><br>
+                    <input type="email" id="email"><br><br>
+
+                    <label for="number">Enter your mobile number</label><br>
+                    <input type="number" id="mobile"><br><br>
+
+                    <label for="name">Enter Password</label><br>
+                    <input type="password" id="password"><br><br>
+
+                    <input type="submit" class=".button-clr" id="submit">
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+</body>
+
+</html>
+<script>
+    function signup(e) {
+        e.preventDefault();
+
+        let myForm = document.getElementById("form");
+
+        let name = myForm.name.value;
+        let email = myForm.email.value;
+        let mobile = myForm.mobile.value;
+        let password = myForm.password.value;
+
+        console.log("hi", email, name)
+
+        var user = {
+            name,
+            email,
+            mobile,
+            password
+        }
+
+
+
+        function checkForProperData() {
+
+            for (k in user) {
+                if (user[k] === "") {
+                    alert("please fill all the details")
+                    return false;
+                }
+            }
+            return true;
+        }
+
+
+
+
+        if (checkForProperData()) {
+
+
+
+            if (localStorage.getItem("users") === null) {
+                localStorage.setItem("users", JSON.stringify([]))
+            }
+
+            let users = JSON.parse(localStorage.getItem("users"));
+
+            users.push(user)
+
+
+
+
+            localStorage.setItem("users", JSON.stringify(users))
+
+
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+</script>

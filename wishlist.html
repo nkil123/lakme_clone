@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WISHLIST</title>
+    <script src="https://kit.fontawesome.com/f001449fdc.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    #shoppingcart {
+        margin: 5% 7% 5% 5%;
+        display: grid;
+        grid-template-columns: 20% 20% 20% 20%;
+        grid-gap: 8%;
+        justify-content: center;
+        text-align: center;
+        padding-bottom: 50px;
+    }
+    
+    .wishlishtdiv {
+        border: 1px solid black;
+        width: fit-content;
+    }
+    
+    #tophead {
+        font-size: 25px;
+    }
+    
+    footer {
+        clear: both;
+        position: relative;
+        background-color: black;
+        height: 100px;
+    }
+    
+    #parafooter {
+        color: white;
+    }
+    
+    #footerbottom {
+        margin-left: 5%;
+        display: flex;
+        padding-top: 2%;
+    }
+    
+    .wishlisticon {
+        position: relative;
+        right: 43%;
+        padding-top: 5%;
+    }
+</style>
+
+
+<body>
+    <header id="header" class="fixed-top">
+
+        <div class="openMenu"><i class="fas fa-bars"></i></div>
+        <a href="lakme.html" class="logo"><img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/files/logo_37106f0a-2cdf-4ed0-9a97-33ad520b6682_155x.png?v=1599222024" alt=""></a>
+
+        <div class="left">
+
+            <div class="far fa-heart" id="wishlistpop"></div>
+            <div class="fas fa-user "></div>
+            <div class="fas fa-search" id="searchi"></div>
+            <div class="fas fa-shopping-bag" id="cart_open"></div>
+
+        </div>
+
+
+    </header>
+
+    <p id="tophead">MY WISHLIST</p>
+    <hr>
+    <div id="shoppingcart"></div>
+    <footer class="bottom">
+        <div id="footerbottom">
+            <div class="logo">
+                <img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/files/logo_155x_2x_36903a57-eff3-46a2-b04e-c7a9465ece1d_medium.png?v=1632222917" />
+            </div>
+            <div>
+                <p id="parafooter"> &nbsp; FOLLOW LATEST UPDATES & NEW LAUNCHES</p>
+            </div>
+
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
+<script>
+    var parent = document.getElementById("shoppingcart");
+    var carti = JSON.parse(localStorage.getItem("wishlist"));
+    var count = 0;
+
+    function showProducts(d) {
+        carti.forEach(function(product) {
+
+
+
+            count++
+            let div = document.createElement("div");
+            div.className = "wishlishtdiv"
+            var icon = document.createElement("i")
+            icon.className = "fas fa-heart wishlisticon";
+
+            let img = document.createElement("img");
+
+            img.src = product.image;
+
+            let product_name = document.createElement("p");
+            product_name.innerHTML = product.name;
+
+            let product_price = document.createElement("p");
+            product_price.innerHTML = product.price;
+
+
+
+
+
+            div.append(icon, img, product_name, product_price)
+
+            parent.append(div);
+
+        })
+    }
+    showProducts()
+</script>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information - Lakme - Checkout</title>
+
+    <style>
+        .top {
+            background-image: url("https://images.pexels.com/photos/219998/pexels-photo-219998.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+            width: 100%;
+            height: 180px;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        
+        .container {
+            width: 100%;
+            height: 1600px;
+            margin: auto;
+            margin-top: 10px;
+            display: grid;
+            grid-template-columns: 60% 40%;
+        }
+        
+        .container .sub_cont {
+            margin-left: 9%;
+            margin-right: 3%;
+        }
+        
+        .container .sub_cont .input {
+            width: 90%;
+            height: 40px;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        
+        .container .sub_cont .checkbox {
+            margin-top: 10px;
+            font-size: 24px;
+        }
+        
+        input.checkbox {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .container .sub_cont .input_short1 {
+            width: 42%;
+            height: 40px;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        
+        .container .sub_cont .input_short2 {
+            width: 43%;
+            height: 40px;
+            font-size: 20px;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+        
+        .container .sub_cont .left {
+            font-size: 15px;
+            margin-top: 10px;
+        }
+        
+        .container .sub_cont .right {
+            font-size: 15px;
+            margin-top: 10px;
+            float: right;
+            margin-right: 10%;
+        }
+        
+        .container2 {
+            width: 100%;
+            height: 1600px;
+        }
+        
+        .container2 .input {
+            width: 60%;
+            height: 40px;
+            font-size: 20px;
+            margin-top: 10px;
+        }
+        
+        button {
+            width: 30%;
+            background-color: black;
+            color: white;
+            height: 60px;
+            margin-top: 35px;
+            margin-left: 300px;
+        }
+        
+        .container .align_left {
+            text-align: left;
+            font-size: 20px;
+            font-weight: 200;
+        }
+        
+        .container .right_box {
+            width: 85%;
+            margin: auto;
+            height: 600px;
+        }
+        
+        .container .align_right {
+            text-align: right;
+            font-size: 18px;
+        }
+        
+        .total {
+            text-align: left;
+            font-size: 25px;
+            font-weight: 100;
+            height: 200px;
+        }
+        
+        .container2 .right_box .small_text {
+            font-size: 14px;
+        }
+        
+        .btn {
+            width: 30%;
+            background-color: black;
+            color: white;
+            height: 47px;
+            margin-top: 35px;
+            margin-left: 10px;
+            border-radius: 5%;
+        }
+        
+        .upper {
+            margin-top: -2px;
+            font-size: 19px;
+        }
+        
+        .red {
+            color: white;
+            background-color: #991853;
+            width: 100%;
+            height: 80px;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: -30px;
+        }
+        
+        h4 {
+            color: red;
+        }
+        
+        img {
+            width: 20%;
+            height: 40px;
+            margin-top: 10%;
+            margin-left: 3%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/files/logo_37106f0a-2cdf-4ed0-9a97-33ad520b6682_155x.png?v=1599222024">
+    </div>
+    <div class="container">
+
+        <div class="sub_cont">
+            <p class="left">CONTACT INFORMATION<span class="right"> Already have an account ? Log in</span> </p>
+            <form>
+                <input class="input" type="text" placeholder="Email" />
+                <br>
+                <input class="checkbox" type="checkbox" name="" value="email"> Email me with news & offers
+
+                <p>Shipping address</p>
+                <label class="input" type="number" placeholder="PIN CODE" />
+                <input class="input" type="text" placeholder="FIRST NAME" />
+                <input class="input" type="text" placeholder="LAST NAME" />
+                <input class="input" type="text" placeholder="Address" />
+                <input class="input" type="text" placeholder="City" />
+                <br>
+                <input class="input_short1" type="text" placeholder="Country/region" /><span><input  class="input_short2" type = "text" placeholder="State"/></span>
+
+                <input class="input" type="number" placeholder="Phone" />
+                <br>
+                <br>
+                <input class="checkbox" type="checkbox" name="" value="email"> Save this information for next time.
+                <br>
+                <input class="checkbox" type="checkbox" name="" value="email"> I am above the age of 18.
+            </form>
+            <br>
+            <button onclick="proceed(event)"> Proceed to Pay</button>
+        </div>
+
+        <div class="container2">
+            <div class="right_box">
+                <input class="input" id="coupan" placeholder="Gift card or discount code" />
+                <button class="btn">Apply</button>
+                <hr>
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="align_left">Subtotal</th>
+                            <th class="align_right">0</th>
+
+                            <tr>
+                                <th class="align_left">Shipping</th>
+                                <th class="small_text">Calculated at next step</th>
+                            </tr>
+
+                            <th class="total">Total
+                                <p class="upper"> Including &#8377;197.67 in taxes</p>
+                            </th>
+                            <th class="align_right" rowspan="2" id="total_append"> Append total amount here</th>
+                        </tr>
+
+                        <tr>
+                            <th class="align_left"></th>
+
+                        </tr>
+
+                    </thead>
+                </table>
+
+                <div class="red">
+                    <p>Sale Alert! -<br> Get Free Lipstick of worth ₹800/- on the purchase of ₹1000/- & above.</p>
+                </div>
+                <h4>Due to unprecedented circumstances, delivery may be delayed. Apologies for the inconvenience. For any urgent queries, kindly drop us an email at support@lakmeindia.com Stay Safe.</h4>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+
+<script>
+    let total = JSON.parse(localStorage.getItem("total_details"))
+    let apped = document.getElementById("total_append")
+
+    apped.innerHTML = total
+
+    let coupan = document.getElementById("coupan")
+    console.log(coupan)
+
+    let apply = document.querySelector(".btn")
+    apply.addEventListener("click", validate)
+
+
+    function validate() {
+        let coupan = document.getElementById("coupan")
+        console.log(coupan.value)
+        if (coupan.value === "masai30") {
+            alert("COUPAN SUCCESSFULLY APPLIED CHECK THE UPDATED TOTAL")
+            apped.innerHTML = Number(total - total * .30)
+        } else {
+            alert("Invalid Coupan")
+        }
+
+
+
+
+    }
+
+    function proceed(e) {
+        e.preventDefault()
+        console.log("hi")
+        window.location.href = "proceed.html"
+    }
+</script>
