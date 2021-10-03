@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/f001449fdc.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #top {
+            display: flex;
+        }
+        
+        #nameprice {
+            padding-left: 20%;
+        }
+        
+        #drop-down {
+            margin-left: 10%;
+        }
+        
+        #productdetails {
+            margin-left: 20%;
+        }
+        
+        #colordetails>div {
+            margin-left: 2%;
+        }
+        
+        #drop {
+            background-color: teal;
+            color: white;
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            height: 60px;
+            border-radius: 5px;
+            font-size: 20px;
+        }
+        
+        #drop-down {
+            position: relative;
+            display: inline-block;
+            width: 400px;
+        }
+        
+        #dropdown-menu {
+            right: 100%;
+            display: none;
+            position: absolute;
+            background-color: #666;
+            width: 160px;
+            /* margin-left: -45px; */
+            border-radius: 5px;
+            z-index: 1;
+        }
+        
+        #dropdown-menu a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        /* #drop-down:hover */
+        /* dropdown-menu {
+            display: block;
+        }  */
+        
+        #btndisplay {
+            display: flex;
+            width: fit-content;
+        }
+        
+        .counterbtn {
+            height: 48px;
+            width: 48px;
+            background-color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 30px;
+        }
+        
+        #quantity {
+            font-size: 30px;
+            padding-top: 8px;
+            width: 40px;
+        }
+        
+        #addtobag {
+            background-color: black;
+            height: 50px;
+            width: 320px;
+            color: white;
+            text-align: center;
+            margin-left: 5%;
+        }
+        
+        .jjj {
+            display: flex
+        }
+        
+        #wishlist {
+            background-color: white;
+            height: 50px;
+            width: 420px;
+            color: black;
+            text-align: center;
+            border: 1px solid black;
+        }
+        
+        .fa-heart {
+            color: red;
+        }
+        
+        #bottomimg {
+            width: 100%;
+            height: 100%;
+        }
+        
+        #colordetails {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .colorbox {
+            cursor: pointer;
+            height: 45px;
+            width: 45px;
+        }
+        
+        #box1 {
+            background-color: #A62125;
+        }
+        
+        #box2 {
+            background-color: #AC5C60;
+        }
+        
+        #box3 {
+            background-color: #C70136;
+        }
+        
+        #box4 {
+            background-color: #DA314C;
+        }
+        
+        #box5 {
+            background-color: #E43E74;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header" class="fixed-top">
+
+        <div class="openMenu"><i class="fas fa-bars"></i></div>
+        <a href="lakme.html" class="logo"><img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/files/logo_37106f0a-2cdf-4ed0-9a97-33ad520b6682_155x.png?v=1599222024" alt=""></a>
+
+        <div class="left">
+
+            <div class="far fa-heart" id="wishlistpop"></div>
+            <div class="fas fa-user "></div>
+            <div class="fas fa-search" id="searchi"></div>
+            <div class="fas fa-shopping-bag" id="cart_open"></div>
+
+        </div>
+
+
+    </header>
+
+
+    <div id="top">
+        <div id="productimg"></div>
+        <div id="productdetails">
+            <div id="nameprice"></div>
+
+            <div id="drop-down">
+                <button id="drop">DropDown</button>
+                <div id="dropdown-menu">
+                    <a href="">Item 1</a>
+                    <a href="">Item 2</a>
+                    <a href="">Item 3</a>
+                    <a href="">Item 4</a>
+                </div>
+            </div>
+            <p>PICK A SHADE</p>
+            <div id="colordetails">
+                <div class="colorbox" id="box1" onclick="changeimg1()"></div>
+                <div class="colorbox" id="box2" onclick="changeimg2()"></div>
+                <div class="colorbox" id="box3" onclick="changeimg3()"></div>
+                <div class="colorbox" id="box4" onclick="changeimg4()"></div>
+                <div class="colorbox" id="box5" onclick="changeimg5()"></div>
+
+            </div>
+            <p>Free Shipping on Orders over 750 <span style='color:black; text-decoration: underline; font-size: 12px'>Details</span></p>
+            <p>Free Shipping on Orders over 750 <span style='color:black; text-decoration: underline; font-size: 12px'>Details</span></p>
+            <p>Quantity</p>
+            <div class="jjj">
+                <div id="btndisplay">
+                    <button class="counterbtn" id="minusbtn" onclick="decreasequantity()">-</button>
+
+                    <div id="quantity">0</div>
+                    <button class="counterbtn" id="plusbtn" onclick="increasequantity()">+</button>
+
+                </div>
+                <button id="addtobag">ADD TO BAG</button>
+            </div>
+            <button id="wishlist"><i class="far fa-heart wishlist"></i> &nbsp; ADD TO WISHLIST</button>
+            <p>⭐⭐⭐⭐⭐ 16 Reviews</p>
+
+        </div>
+    </div>
+    <img id="bottomimg" src="https://cdn.shopify.com/s/files/1/0014/3514/0183/files/970_x_1399_A.jpg?v=1632117163" alt="">
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+<script>
+    /*#drop-down:hover */
+    /* dropdown-menu*/
+
+    var dropdwn = document.getElementById("drop")
+    dropdwn.addEventListener("click", showmenu)
+
+    var drpdwnmenu = document.getElementById("dropdown-menu")
+
+    function showmenu() {
+
+        drpdwnmenu.style.display = "block"
+        dropdwn.addEventListener("click", closemenu)
+
+        function closemenu() {
+
+            drpdwnmenu.style.display = "none"
+            dropdwn.addEventListener("click", showmenu)
+        }
+
+    }
+
+
+
+
+    var data = [{
+        name: "LAKMÉ ABSOLUTE MATTE ULTIMATE LIP COLOR WITH ARGAN OIL",
+        details: "Lakmé Absolute introduces a new Matte Ultimate Lip colour with Argan oil - a glamorous matte lipstick range suited for every occasion. From deep plum to fierce red, the collection comprises of 12 trendy shades with a lightweight formula enriched with luxe argan oil that nourishes your lips and keeps it from drying. Every bullet has a soft velvety matte texture that comfortably sits on your lips and provides a bold, intense color payoff. Sport a sensational pout with the ultimate matte lip color!",
+        color: "PETAL PINK",
+        howtouse: "Step 1: Create a cross on your cupid’s bow.<br> Step 2: Start applying from the centre of your upper lip.<br> Step 3: Work from the centre towards the outer edges of your lip, following the contours of your mouth and glide across your bottom lip.",
+        price: "800",
+        image: "https://cdn.shopify.com/s/files/1/0014/3514/0183/products/29158_H2_8901030857867_600x.jpg?v=1630499339"
+    }];
+
+    // var colordata = [{
+    //         "RED": "#A62125"
+    //     },
+    //     {
+    //         "BLUE": "#C11528"
+    //     }, {
+    //         "BLACK": "#C70136"
+    //     }, {
+    //         "GREEN": "yellow"
+    //     },
+    //     {
+    //         "YELLOW": "yellow"
+    //     }, {
+    //         "PINK": "pink"
+    //     }, {
+    //         "GREY": "grey"
+    //     }
+    // ]
+    // , "blue", "black", "green", "yellow", "pink", "grey"
+
+    // for (var t = 0; t < colordata.length; t++) {
+    //     for (key in colordata[t]) {
+    //         console.log(colordata[t][key])
+    //     }
+
+    var btnquantity = document.getElementById("quantity");
+    var count = 0;
+
+    function increasequantity() {
+        if (count >= 0) {
+            count++;
+            btnquantity.textContent = count
+        }
+    }
+
+    function decreasequantity() {
+        if (count >= 1) {
+            count--;
+            btnquantity.textContent = count
+        }
+    }
+    // }
+
+    var parent1 = document.getElementById("productimg");
+
+    var imgs = document.createElement("img")
+    imgs.className = "imgclass"
+
+    function showProducts(d) {
+        data.forEach(function(product) {
+            var div = document.createElement("div");
+            div.className = "divimage"
+
+            let anchor = document.createElement("a")
+            anchor.href = "lakme.html"
+            var para = document.createElement("p")
+
+            para.textContent = "Home > " + product.name;
+            anchor.append(para)
+            imgs.src = product.image;
+
+            imgs.style.height = "400px"
+            imgs.style.width = "400px"
+            imgs.style.marginLeft = "10%"
+
+
+
+            div.append(anchor, imgs);
+            parent1.append(div);
+        })
+
+    }
+
+    function changeimg1() {
+        imgs.src =
+            "https://cdn.shopify.com/s/files/1/0014/3514/0183/products/29158_H2_8901030857867_600x.jpg?v=1630499339"
+    }
+
+    function changeimg2() {
+        imgs.src =
+            "https://cdn.shopify.com/s/files/1/0014/3514/0183/products/29163_H2_8901030857911_600x.jpg?v=1630500861"
+    }
+
+    function changeimg3() {
+        imgs.src =
+            "https://cdn.shopify.com/s/files/1/0014/3514/0183/products/29160_H2_8901030857881_600x.jpg?v=1630500562"
+    }
+
+    function changeimg4() {
+        imgs.src =
+            "https://cdn.shopify.com/s/files/1/0014/3514/0183/products/29160_H2_8901030857881_600x.jpg?v=1630500562"
+    }
+
+    function changeimg5() {
+        imgs.src =
+            "https://cdn.shopify.com/s/files/1/0014/3514/0183/products/29164_H2_8901030857928_600x.jpg?v=1630500979"
+    }
+
+
+    showProducts()
+
+    var parent2 = document.getElementById("nameprice")
+
+    function showProductsdetails(d) {
+
+        data.forEach(function(product1) {
+            console.log(data)
+                // var div = document.createElement("div");
+
+
+            var para1 = document.createElement("p");
+            para1.textContent = product1.name;
+            para1.style.fontFamily = "DIN Neuzeit Grotesk, sans-serif";
+            para1.style.fontWeight = "800"
+            var productPrice = document.createElement("p");
+            productPrice.textContent = "₹ " + product1.price;
+
+
+
+            // div.style.paddingLeft = "20%"
+            // div.style.marginLeft = "260px"
+            parent2.append(para1, productPrice);
+        })
+    }
+    showProductsdetails()
+        // var colordetails = document.getElementById("colordetails");
+
+    // function showcolor() {
+
+    //     for (var i = 0; i < colordata.length; i++) {
+    //         for (key in colordata[i]) {
+    //             // var pickahsadetitle = document.createElement("p");
+    //             // pickahsadetitle.textContent = "PICK A SHADE"
+    //             // var pickashade = document.createElement("div");
+    //             // pickashade.className = "pickshade"
+    //             var element = document.createElement("div");
+    //             element.className = "colorsbtn"
+    //             element.style.backgroundColor = colordata[i][key];
+    //             element.style.cursor = "pointer"
+    //             element.style.height = "45px";
+    //             element.style.width = "45px";
+
+    //         }
+    //         colordetails.append(element)
+
+    //     }
+
+    // }
+
+    let addtobag = document.getElementById("addtobag")
+        // addtobag.addEventListener("mouseenter", changecolor)
+        //   addtobag.addEventListener("mouseleave", changecolor1)
+
+
+
+
+    function changecolor() {
+        addtobag.style.backgroundColor = "white"
+        addtobag.style.color = "black"
+    }
+
+    function changecolor1() {
+        addtobag.style.backgroundColor = "black"
+        addtobag.style.color = "white"
+    }
+    var items = {}
+    items.name = data[0].name;
+    items.price = data[0].price;
+    items.image = data[0].image;
+    // console.log(count++)
+    // items.units = btnquantity.textContent
+    // console.log(items, "yhanks") 
+
+    addtobag.addEventListener("click", add)
+
+    function add() {
+
+
+
+
+
+
+
+
+        if (localStorage.getItem("bag") === null) {
+            localStorage.setItem("bag", JSON.stringify([]))
+        }
+
+        let product = JSON.parse(localStorage.getItem("bag"))
+
+        product.push(items)
+
+
+        localStorage.setItem("bag", JSON.stringify(product))
+
+        increasequantity()
+    }
+
+    let add_wish_list = document.getElementById("wishlist")
+    add_wish_list.addEventListener("click", addwish)
+
+    let wishPops = document.getElementById('wishlistpop');
+    wishPops.addEventListener('click', redirect);
+
+    function redirect() {
+        window.location.href = 'wishlist.html';
+    }
+
+    function addwish() {
+
+        if (localStorage.getItem("wish") === null) {
+            localStorage.setItem("wish", JSON.stringify([]))
+        }
+
+
+        let prod = JSON.parse(localStorage.getItem("wish"))
+        prod.push(items)
+
+
+        localStorage.setItem("wish", JSON.stringify(prod))
+
+        // console.log(prod)
+
+
+
+
+    }
+</script>
