@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    .centered {
+        position: absolute;
+        top: 60%;
+        left: 60%;
+        font-size: xx-large;
+        font-family: "DIN Neuzeit Grotesk", sans-serif;
+        color: azure;
+        font-weight: 300;
+        font-style: normal;
+
+    }
+
+    .container {
+        position: relative;
+        width: 100%;
+    }
+
+    .btn {
+        background-color: yellowgreen;
+        border: none;
+        color: white;
+        padding: 12px 16px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .bar {
+        width: 100%;
+        
+    }
+
+    .twoicons button {
+
+        color: black;
+        padding: 16px;
+        font-size: 10px;
+        border: none;
+        cursor: pointer;
+        font-size: small;
+    }
+
+    .dropbtn {
+        background-color: grey;
+        color: black;
+        padding: 16px;
+        font-size: 10px;
+        border: none;
+        cursor: pointer;
+        font-size: small;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        overflow: auto;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown a:hover {
+        background-color: #ddd;
+    }
+
+    .show {
+        display: block;
+    }
+    
+
+</style>
+
+<body>
+    <div class="container">
+        <img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/collections/new_arrivals_1600x.png?v=1606486343">
+        <div class="centered">New Launches</div>
+    </div>
+    <div class="bar">
+        <div class="twoicons">
+            <button class="btn"><i class="fa fa-bars"></i></button>
+            <button class="btn"><i class="fa fa-bars"></i></button>
+            <div class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">Sort</button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="#about">Low to High</a>
+                    <a href="#contact">High to Low</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <main>
+
+        <div class="scrollingproduct">
+            <a href="#"> <i class="far fa-heart wishlist"></i></a>
+            <img class="productimg" src="https://cdn.shopify.com/s/files/1/0014/3514/0183/products/29036_H1_8901030837005_300x.jpg?v=1623388003" alt="">
+
+            <p class="newtag">NEW</p>
+            <p class="name">LAKME LIMITED EDITION LIP <br>COLORS</p>
+            <p class="price">₹ 800</p>
+
+            <p class="shadesno"> 25 Shades</p>
+            <button class="viewshades">VIEW SHADES</button>
+        </div>
+        <div class="scrollingproduct">
+            <a href="#"> <i class="far fa-heart wishlist"></i></a>
+            <img class="productimg" src="https://cdn.shopify.com/s/files/1/0014/3514/0183/products/24990_H2-8901030817496_300x.jpg?v=1620115073" alt="">
+
+            <p class="newtag">NEW</p>
+            <p class="name">LAKME LIMITED EDITION LIP <br>COLORS</p>
+            <p class="price">₹ 800</p>
+
+            <p class="shadesno"> 25 Shades</p>
+            <button class="viewshades">VIEW SHADES</button>
+        </div>
+        <div class="scrollingproduct">
+            <a href="#"> <i class="far fa-heart wishlist"></i></a>
+            <img class="productimg" src="https://cdn.shopify.com/s/files/1/0014/3514/0183/products/2_1_300x.jpg?v=1618213425" alt="">
+
+            <p class="newtag">NEW</p>
+            <p class="name">LAKME LIMITED EDITION LIP <br>COLORS</p>
+            <p class="price">₹ 800</p>
+
+            <p class="shadesno"> 25 Shades</p>
+            <button class="viewshades">VIEW SHADES</button>
+        </div>
+        <div class="scrollingproduct">
+            <a href="#"> <i class="far fa-heart wishlist"></i></a>
+            <img class="productimg" src="
+                    https://cdn.shopify.com/s/files/1/0014/3514/0183/products/29158_H2_8901030857867_300x.jpg?v=1630501152" alt="">
+
+            <p class="newtag">NEW</p>
+            <p class="name">LAKME LIMITED EDITION LIP <br>COLORS</p>
+            <p class="price">₹ 800</p>
+
+            <p class="shadesno"> 25 Shades</p>
+            <button class="viewshades">VIEW SHADES</button>
+        </div>
+        
+    </main>
+</body>
+
+</html>
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+
+    /* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>

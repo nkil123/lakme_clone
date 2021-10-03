@@ -11,27 +11,17 @@
             font-family: "Roboto", sans-serif;
             width: 100%;
             text-align: center;
-        }  
+        }
 
-        #head,#newlist{
-             display : flex ; 
-         }
-         #head{
-             float: left;
-         }
-         #newlist{
-             float: right;
-         }
-
-        #newlist > button {
+        #newlist>button {
             background-color: orangered;
             cursor: pointer;
-            padding: 2% 1%;
+            padding: 1% 2%;
         }
 
         .flex {
             display: flex;
-    
+
         }
 
         .collapsible {
@@ -110,19 +100,11 @@
         <div id="head">
             <p>My Wishlist</p>
         </div>
-
         <div id="newlist">
-            <button onclick = "Add()"> + ADD A NEW LIST</button>
+            <button> + ADD A NEW LIST</button>
         </div>
     </div>
-
-    <div> 
-        <input id = "name"  type = "text"/>
-         <h3 id = "output"></h3> 
-       
-    </div>
-      
-    <hr/>
+    <hr />
     <div class="flex">
         <div>
             <button class="collapsible" type="button">UNTITLED LIST</button>
@@ -130,7 +112,6 @@
                 <p>This list is empty</p>
             </div>
         </div>
-
         <div>
             <div class="dropdown">
                 <button onclick="myFunction()" class="dropbtn">...</button>
@@ -140,64 +121,94 @@
                 </div>
             </div>
         </div>
-    </div>   
-    
-<hr/>
-        <!-- <button type="button" class="collapsible">UNTITLED LIST</button>
-        <div class="content">
-            <p>This list is empty</p>
-        </div>
-        <div class="dropdown">
-            <button onclick="myFunction()" class="dropbtn">...</button>
-            <div id="myDropdown" class="dropdown-content">
-                <a>Edit name</a>
-                <a>Delete</a>
-            </div>
-        </div> -->
-        
-   
-    <script>  
 
-           function Add(){
-                var input = document.getElementById("name").value ;
-                document.getElementById("output").textContent = input ;   
-                               
-           }
-        var coll = document.getElementsByClassName("collapsible");
-        var i;
-    
-        for (i = 0; i < coll.length; i++) {
-            coll[i].addEventListener("click", function () {
-                this.classList.toggle("active");
-                var content = this.nextElementSibling;
-                if (content.style.display === "block") {
-                    content.style.display = "none";
-                } else {
-                    content.style.display = "block";
-                }
-            });
-        }
-    
-        /* When the user clicks on the button, 
-    toggle between hiding and showing the dropdown content */
-        function myFunction() {
-            document.getElementById("myDropdown").classList.toggle("show");
-        }
-    
-        // Close the dropdown if the user clicks outside of it
-        window.onclick = function (event) {
-            if (!event.target.matches('.dropbtn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                var i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        }
-    </script>
+    </div>
+    <hr />
+
 </body>
 
 </html>
+<script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+
+    /* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+
+
+
+
+    let parent = document.getElementById('prod');
+
+    let cart = JSON.parse(localStorage.getItem("cart"))
+
+    console.log(cart);
+
+    function showProducts() {
+
+        cart.forEach(function (product) {
+
+            let div = document.createElement("div");
+
+            let img = document.createElement("img");
+
+             img.src = product.img;
+
+
+            let product_prize = document.createElement("p");
+
+            product_prize.textContent = product.price;
+            product_prize.style.fontSize = "20px"
+            product_prize.style.textAlign = "center"
+
+
+            let product_name = document.createElement("p")
+
+            product_name.textContent = product.name;
+            product_name.style.fontSize = "15px"
+            product_name.style.textAlign = "center"
+
+            let addtocart_btn = document.createElement("button");
+
+            addtocart_btn.innerText = "Add to cart";
+
+            addtocart_btn.onclick = function () {
+                addtoCart(product);
+            };
+
+            div.append(img, product_name, product_prize)
+
+            parent.append(div);
+
+        });
+        showProducts();
+</script>
