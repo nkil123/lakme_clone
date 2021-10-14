@@ -165,52 +165,6 @@ function showSlides(n) {
     dots[slideIndex - 1].className += ' active';
 }
 
-var btn = document.getElementsByClassName('arrow');
-var div = document.getElementsByTagName('div');
-var l = 0;
-btn[0].style.visibility = 'hidden';
-btn[1].onclick = () => {
-    l++;
-    for (var i of div) {
-        if (l == 0) {
-            i.style.left = '-100%';
-        }
-        if (l == 1) {
-            i.style.left == '-100%';
-        }
-        if (l == 2) {
-            i.style.left = '-100%';
-        }
-
-        if (l >= 2) {
-            btn[0].style.visibility = 'visible';
-            btn[1].style.visibility = 'hidden';
-            l = 2;
-        }
-    }
-};
-
-btn[0].onclick = () => {
-    l--;
-    for (var i of div) {
-        if (l == 0) {
-            i.style.left = '0px';
-        }
-        if (l == 1) {
-            i.style.left == '-740px';
-        }
-        if (l == 2) {
-            i.style.left = '-1480px';
-        }
-
-        if (l <= 0) {
-            btn[0].style.visibility = 'hidden';
-            btn[1].style.visibility = 'visible';
-            l = 0;
-        }
-    }
-};
-
 // this is related to cart
 
 let cartOpen = document.getElementById('cart_open');
