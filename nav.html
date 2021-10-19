@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/f001449fdc.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #navbar {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            background-color: black;
+            color: white;
+            height: 100px;
+            padding: 18px 30px 18px 30px;
+        }
+        
+        #navbar .left {
+            display: flex;
+        }
+        
+        #navbar .left a {
+            margin-right: 20px;
+        }
+        
+        #navbar .left a,
+        #navbar .openMenu i,
+        #hamburger .close,
+        #cart_page #cart_header i,
+        #navbar .logo {
+            font-size: 38px;
+            padding: 2px;
+            color: white;
+        }
+        
+        .alignC {
+            align-items: center;
+        }
+        
+        .flex {
+            display: flex;
+        }
+        
+        #hamburger {
+            position: fixed;
+            padding: 15px;
+            top: 0;
+            left: -900px;
+            width: 400px;
+            height: 100vh;
+            background-color: black;
+            z-index: 2;
+        }
+        
+        #hamburger #hamLi ul li {
+            color: white;
+            list-style: none;
+            padding: 12px 0px 12px 0px;
+            border-bottom: 0.1px solid rgb(77, 76, 76);
+            text-align: left;
+            margin: 30px auto 0 20%;
+            align-items: center;
+            font-family: sans-serif;
+        }
+        
+        #hamburger #hamLi ul li a {
+            color: rgb(206, 197, 197);
+            text-decoration: none;
+            cursor: pointer;
+            letter-spacing: 2.4px;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 20px;
+        }
+        
+        #img {
+            width: 100%;
+        }
+        
+        #cart_page {
+            position: fixed;
+            right: -1000px;
+            top: 0;
+            width: 500px;
+            height: 100vh;
+            padding: 20px;
+            background-color: white;
+            z-index: 2;
+        }
+        
+        #cart_page #cart_header {
+            color: black;
+            margin: auto;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid rgb(180, 175, 175);
+            padding: 10px;
+        }
+        
+        #cart_page #cart_header i {
+            color: rgb(78, 76, 76);
+            /* font-weight: 500; */
+        }
+        
+        #cart_page #cart_header p {
+            font-size: 20px;
+            letter-spacing: 3.2px;
+            font-family: sans-serif;
+            text-transform: uppercase;
+            text-decoration: none solid rgb(69, 69, 69);
+        }
+        
+        #searchBar {
+            position: fixed;
+            left: -10000px;
+            top: 68px;
+            width: 100%;
+            font-family: sans-serif;
+            font-size: 14px;
+            line-height: 23px;
+            height: 95px;
+            padding: 28px 50px 28px 50px;
+            background-color: rgb(255, 255, 255);
+            z-index: 1;
+            margin: auto;
+            /* align-items: center; */
+        }
+        
+        #searchBar input {
+            margin: auto;
+            width: 95%;
+            height: 40px;
+            padding: 8px 20px 8px 20px;
+            background: 0px 0px;
+            text-align: left;
+            font-size: 16px;
+            outline: rgb(255, 0, 0) dashed 1px;
+            border: none;
+            letter-spacing: 2px;
+        }
+        
+        #searchBar i {
+            font-size: 20px;
+            height: 22px;
+        }
+        
+        #cart_page .payement {
+            width: 100%;
+            height: 300px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            /* background-color: red; */
+        }
+        
+        .textC {
+            text-align: center;
+        }
+        
+        #cart_page .payement #patdHeader {
+            padding: 12px 10px 12px 10px;
+            margin-bottom: 15px;
+            background-color: #F5F5F5;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        #cart_page .payement .summary .tname_tot {
+            width: 90%;
+            display: flex;
+            justify-content: space-between;
+            margin: auto auto 10px auto;
+            padding: 10px;
+        }
+        
+        #cart_page .payement .summary .tname_tot>div {
+            margin-bottom: 5px;
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+        
+        #cart_page .payement .footer {
+            width: 100%;
+            background-color: red;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            display: flex;
+        }
+        
+        #cart_page .payement .footer button {
+            flex-basis: 50%;
+            padding: 10px;
+            font-size: 20px;
+            letter-spacing: 2px;
+        }
+        
+        #cart_page .payement .footer button:nth-child(2) {
+            background-color: #991F53;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+
+        <nav id="navbar" class="alignC ">
+            <div class="openMenu" id="openM"><i class="fas fa-bars"></i></div>
+            <a href="lakme.html" class="logo"><img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/files/logo_37106f0a-2cdf-4ed0-9a97-33ad520b6682_155x.png?v=1599222024" alt=""></a>
+            <div class="left alignC flex">
+
+                <a class="far fa-heart" id="wishlistpop"></a>
+                <a class="fas fa-user " id="user"></a>
+                <a class="fas fa-search" id="searchi"></a>
+                <a class="fas fa-shopping-bag" id="cart_open"></a>
+
+            </div>
+        </nav>
+
+
+        <div id="hamburger">
+
+
+            <div class="fa fa-times close" id="closeM"></div>
+
+
+            <div id="hamLi" class="alignC">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">SIGN IN OR REGISTER</a></li>
+                    <li><a href="#">YOUR ORDER</a></li>
+                    <li><a href="#">BEST DEALS OR SALES</a></li>
+                    <li><a href="#">MAKEUP</a></li>
+                    <li><a href="#">SKIN CARE</a></li>
+                    <li><a href="#">TRENDS</a></li>
+                    <li><a href="#">GET THE LOOK</a></li>
+                    <li><a href="#">JOIN THE CLUB</a></li>
+
+                </ul>
+            </div>
+
+        </div>
+        <!-- cart  -->
+        <div id="cart_page">
+            <!-- cart_title  -->
+            <div id="cart_header" class="">
+                <p>Cart</p>
+                <!-- cart_close  -->
+                <a id="closeCart"><i class="fa fa-times close"></i></a>
+
+            </div>
+
+            <div class="all_cart_items">
+            </div>
+            <div class="payement">
+                <div class="textC" id="patdHeader">
+                    <h2>PAYEMENT DETAILS</h2>
+                </div>
+
+                <div class="summary">
+                    <div class="tname_tot">
+                        <div class="tname"><b>Bag Toatal</b></div>
+                        <div class="ptotal"><i class="fas fa-rupee-sign"></i>0</div>
+                    </div>
+                    <div class="tname_tot">
+                        <div class="tname">
+                            <p>savings</p>
+                        </div>
+                        <div class="ptotal"><i class="fas fa-rupee-sign"></i>0</div>
+                    </div>
+                    <div class="tname_tot">
+                        <div class="tname">
+                            <p>Shipping Charges</p>
+                        </div>
+                        <div class="ptotal"><i class="fas fa-rupee-sign"></i>0</div>
+                    </div>
+                </div>
+                <div class="footer">
+
+                    <button class="sum_total"><i class="fas fa-rupee-sign"></i> 2323</button>
+
+                    <button class="checkout" onclick="checkout()"><h3>Checkout></h3></button>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        <div id="searchBar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="What are you looking for">
+        </div>
+    </header>
+
+</body>
+
+</html>
+
+<script>
+    let hamburger = document.getElementById("hamburger")
+
+    let opens = document.getElementById("openM")
+    opens.addEventListener("click", openn)
+
+
+    function openn() {
+
+        hamburger.style.left = "0"
+
+    }
+
+    let closes = document.getElementById("closeM")
+    closes.addEventListener("click", closee)
+
+    function closee() {
+
+
+        hamburger.style.left = "-900px"
+
+    }
+
+
+    let cart_btn = document.getElementById("cart_open")
+    cart_btn.addEventListener("click", showCart)
+
+    let cart = document.getElementById("cart_page")
+
+
+    function showCart() {
+        cart.style.right = "0"
+    }
+
+    let cartClose_btn = document.getElementById("closeCart")
+    cartClose_btn.addEventListener("click", closeCart)
+
+
+    function closeCart() {
+        cart.style.right = "-1000px"
+    }
+
+
+    let search_btn = document.getElementById("searchi")
+    search_btn.addEventListener("click", searchdo)
+
+    let searchbar = document.getElementById("searchBar")
+
+    let flag = false;
+
+    function searchdo() {
+        console.log("hi")
+        if (flag == false) {
+            searchbar.style.left = "0px"
+            flag = true;
+        } else {
+            searchbar.style.left = "-10000px"
+            flag = false;
+        }
+
+
+
+    }
+    // let search2_btn = document.getElementById("searchi")
+    // search2_btn.addEventListener("click", search2do)
+
+    // function search2do() {
+
+    //     return
+    // }
+</script>

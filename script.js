@@ -1,244 +1,66 @@
 // adding eventlistner to the ham icon
 
-let hambutton = document.querySelector('.openMenu');
+let hamburger = document.getElementById('hamburger');
 
-hambutton.addEventListener('click', openss);
+let opens = document.getElementById('openM');
+opens.addEventListener('click', openn);
 
-// opens the hamburgur
-
-function openss() {
-    // create elements required in the nav bar
-    let nav = document.createElement('nav');
-    nav.id = 'nav';
-    let closer = document.createElement('div');
-    closer.className = 'closeMenu';
-
-    // this icon is used to close the navigatoin bar
-    let ham = document.createElement('i');
-    ham.className = 'fa fa-times';
-    ham.style.color = 'white';
-    closer.append(ham);
-
-    // adding functonality and redirecting to another function to close the  nav
-    ham.onclick = function() {
-        closeall();
-    };
-
-    let ul = document.createElement('ul');
-    ul.className = 'mainMenu';
-
-    let li1 = document.createElement('li');
-    let home = document.createElement('a');
-    home.href = 'lakme.html';
-    home.innerHTML = 'HOME';
-    li1.appendChild(home);
-
-    let li2 = document.createElement('li');
-    let siOrReg = document.createElement('a');
-    siOrReg.href = '#';
-    siOrReg.innerHTML = 'SIGN IN OR REGISTER';
-    li2.appendChild(siOrReg);
-
-    let li3 = document.createElement('li');
-    let yourOrder = document.createElement('a');
-    yourOrder.href = '#';
-    yourOrder.innerHTML = 'YOUR ORDER';
-    li3.appendChild(yourOrder);
-
-    let li4 = document.createElement('li');
-    let bestDsales = document.createElement('a');
-    bestDsales.href = 'sale.html';
-    bestDsales.innerHTML = 'BEST DEALS/SALES';
-    li4.appendChild(bestDsales);
-
-    let li5 = document.createElement('li');
-    let makeUp = document.createElement('a');
-    makeUp.href = '#';
-    makeUp.innerHTML = 'MAKEUP';
-    li5.appendChild(makeUp);
-
-    let li6 = document.createElement('li');
-    let skinCare = document.createElement('a');
-    skinCare.href = '#';
-    skinCare.innerHTML = 'SKIN CARE';
-    li6.appendChild(skinCare);
-
-    let li7 = document.createElement('li');
-    let collections = document.createElement('a');
-    collections.href = 'makeup.html';
-    collections.innerHTML = 'TRENDS';
-    li7.appendChild(collections);
-
-    let li8 = document.createElement('li');
-    let findYMatch = document.createElement('a');
-    findYMatch.href = '#';
-    findYMatch.innerHTML = 'FIND YOUR MATCH';
-    li8.appendChild(findYMatch);
-
-    let li9 = document.createElement('li');
-    let trending = document.createElement('a');
-    trending.href = 'trendingproduct.html';
-    trending.innerHTML = 'TRENDING';
-    li9.appendChild(trending);
-
-    let li10 = document.createElement('li');
-    let getTheLook = document.createElement('a');
-    getTheLook.href = '#';
-    getTheLook.innerHTML = 'GET THE LOOK';
-    li10.appendChild(getTheLook);
-
-    let li11 = document.createElement('li');
-    let joinTheClub = document.createElement('a');
-    joinTheClub.href = '#';
-    joinTheClub.innerHTML = 'JOIN THE CLUB';
-    li11.appendChild(joinTheClub);
-
-    ul.append(li1, li2, li3, li4, li5, li6, li7, li8, li9, li10, li11);
-    nav.append(closer, ul);
-    document.body.append(nav);
-    console.log(nav);
+function openn() {
+    hamburger.style.left = '0';
 }
 
-// function to close the navbar
+let closes = document.getElementById('closeM');
+closes.addEventListener('click', closee);
 
-function closeall() {
+function closee() {
+    hamburger.style.left = '-900px';
+}
+
+let cart_btn = document.getElementById('cart_open');
+cart_btn.addEventListener('click', showCart);
+
+let cart = document.getElementById('cart_page');
+
+function showCart() {
+    cart.style.right = '0';
+}
+
+let cartClose_btn = document.getElementById('closeCart');
+cartClose_btn.addEventListener('click', closeCart);
+
+function closeCart() {
+    cart.style.right = '-1000px';
+}
+
+let search_btn = document.getElementById('searchi');
+search_btn.addEventListener('click', searchdo);
+
+let searchbar = document.getElementById('searchBar');
+
+let flag = false;
+
+function searchdo() {
     console.log('hi');
-
-    let nav = document.getElementById('nav');
-    console.log(nav);
-    nav.remove();
-    // console.log(nav);
-}
-
-var searchbtn = document.getElementById('searchi');
-
-searchbtn.addEventListener('click', searchbar);
-
-// note this method is better than the one used for hamburrger menu
-
-function searchbar() {
-    let bar = document.getElementById('searchBar');
-
-    if (bar.style.visibility === 'hidden') {
-        bar.style.visibility = 'visible';
+    if (flag == false) {
+        searchbar.style.left = '0px';
+        flag = true;
     } else {
-        bar.style.visibility = 'hidden';
+        searchbar.style.left = '-10000px';
+        flag = false;
     }
 }
-
 // console.log('HIII');
 // let srch = document.getElementById('searchBar');
 // console.log(sea);
 // srch.remove();
 // console.log(bar);
-
-var slideIndex = 1;
-showSlides(slideIndex);
-
-// Next/previous controls
-function plusSlides(n) {
-    showSlides((slideIndex += n));
-}
-
-// Thumbnail image controls
-function currentSlide(n) {
-    showSlides((slideIndex = n));
-}
-
-function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName('mySlides');
-    var dots = document.getElementsByClassName('dot');
-    if (n > slides.length) {
-        slideIndex = 1;
-    }
-    if (n < 1) {
-        slideIndex = slides.length;
-    }
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = 'none';
-    }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(' active', '');
-    }
-    slides[slideIndex - 1].style.display = 'block';
-    dots[slideIndex - 1].className += ' active';
-}
-
-var btn = document.getElementsByClassName('arrow');
-var div = document.getElementsByTagName('div');
-var l = 0;
-btn[0].style.visibility = 'hidden';
-btn[1].onclick = () => {
-    l++;
-    for (var i of div) {
-        if (l == 0) {
-            i.style.left = '-100%';
-        }
-        if (l == 1) {
-            i.style.left == '-100%';
-        }
-        if (l == 2) {
-            i.style.left = '-100%';
-        }
-
-        if (l >= 2) {
-            btn[0].style.visibility = 'visible';
-            btn[1].style.visibility = 'hidden';
-            l = 2;
-        }
-    }
-};
-
-btn[0].onclick = () => {
-    l--;
-    for (var i of div) {
-        if (l == 0) {
-            i.style.left = '0px';
-        }
-        if (l == 1) {
-            i.style.left == '-740px';
-        }
-        if (l == 2) {
-            i.style.left = '-1480px';
-        }
-
-        if (l <= 0) {
-            btn[0].style.visibility = 'hidden';
-            btn[1].style.visibility = 'visible';
-            l = 0;
-        }
-    }
-};
-
-// this is related to cart
-
-let cartOpen = document.getElementById('cart_open');
-let cartSideBar = document.getElementById('cart');
-let cartClose = document.getElementById('cart_close');
-
-console.log(cartOpen, cartSideBar, cartClose);
-
-cartOpen.onclick = function() {
-    add_to_bag();
-    cartSideBar.style.right = '0';
-    cartSideBar.style.visibility = 'visible';
-};
-
-cartClose.onclick = function() {
-    cartSideBar.style.right = '-500px';
-    cartSideBar.style.visibility = 'hidden';
-};
-
-// when add to cart functionality is pressed
-
-// Image,name,Price,
 let cart_items = document.querySelector('.all_cart_items ');
 console.log(cart_items, 'cart_items');
 let bag_items = JSON.parse(localStorage.getItem('bag'));
 console.log(bag_items, 'cart_items');
 
 var total = 0;
+add_to_bag();
 
 function add_to_bag() {
     if (bag_items === [] || bag_items === null) {
@@ -393,3 +215,104 @@ function go_check() {
 
     window.location.href = 'checkout.html';
 }
+var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+    showSlides((slideIndex += n));
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+    showSlides((slideIndex = n));
+}
+
+function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName('mySlides');
+    var dots = document.getElementsByClassName('dot');
+    if (n > slides.length) {
+        slideIndex = 1;
+    }
+    if (n < 1) {
+        slideIndex = slides.length;
+    }
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(' active', '');
+    }
+    slides[slideIndex - 1].style.display = 'block';
+    dots[slideIndex - 1].className += ' active';
+}
+
+var btn = document.getElementsByClassName('arrow');
+var div = document.getElementsByTagName('div');
+var l = 0;
+// btn[0].style.visibility = 'hidden';
+btn[1].onclick = () => {
+    l++;
+    for (var i of div) {
+        if (l == 0) {
+            i.style.left = '-100%';
+        }
+        if (l == 1) {
+            i.style.left == '-100%';
+        }
+        if (l == 2) {
+            i.style.left = '-100%';
+        }
+
+        if (l >= 2) {
+            btn[0].style.visibility = 'visible';
+            btn[1].style.visibility = 'hidden';
+            l = 2;
+        }
+    }
+};
+
+btn[0].onclick = () => {
+    l--;
+    for (var i of div) {
+        if (l == 0) {
+            i.style.left = '0px';
+        }
+        if (l == 1) {
+            i.style.left == '-740px';
+        }
+        if (l == 2) {
+            i.style.left = '-1480px';
+        }
+
+        if (l <= 0) {
+            btn[0].style.visibility = 'hidden';
+            btn[1].style.visibility = 'visible';
+            l = 0;
+        }
+    }
+};
+
+// this is related to cart
+
+// let cartOpen = document.getElementById('cart_open');
+// let cartSideBar = document.getElementById('cart');
+// let cartClose = document.getElementById('cart_close');
+
+// console.log(cartOpen, cartSideBar, cartClose);
+
+// cartOpen.onclick = function() {
+//     add_to_bag();
+//     cartSideBar.style.right = '0';
+//     cartSideBar.style.visibility = 'visible';
+// };
+
+// cartClose.onclick = function() {
+//     cartSideBar.style.right = '-500px';
+//     cartSideBar.style.visibility = 'hidden';
+// };
+
+// when add to cart functionality is pressed
+
+// Image,name,Price,

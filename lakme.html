@@ -11,33 +11,152 @@
 
 
     <link rel="stylesheet" href="style.css">
+    <script>
+        var left = 1;
+        var right = 4;
+
+        function show() {
+            for (i = left; i <= right; i++) {
+                document.getElementById("c" + i).style.display = "inline-block"
+            }
+        }
+
+        function moveLeft() {
+            if (left <= 4 && right <= 8) {
+                document.getElementById("c" + left).style.display = "none";
+                left += 1;
+                right += 1;
+                for (i = left; i <= right; i++) {
+                    document.getElementById("c" + i).style.display = "inline-block"
+                }
+
+            } else {
+                return;
+            }
+        }
+
+        function moveRight() {
+            if (left >= 1 && right >= 5) {
+                document.getElementById("c" + right).style.display = "none";
+                left -= 1;
+                right -= 1;
+                for (i = left; i <= right; i++) {
+                    document.getElementById("c" + i).style.display = "inline-block"
+                }
+            } else {
+                return;
+            }
+        }
+    </script>
 </head>
+<style>
+    .parent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 600px;
+    }
+    
+    .child {
+        width: 40%;
+        margin-left: 20px;
+        margin-right: 20px;
+        display: none;
+        color: rgb(126, 15, 15);
+        /* left: 0; */
+        text-align: center;
+        transition: 0.5s;
+    }
+    
+    .child img {
+        height: 300px;
+        width: 100%;
+    }
+    
+    #leftarrow #rightarrow {
+        margin-left: 12px;
+        margin: 3%;
+        display: inline-block;
+    }
+    
+    .btnarrow {
+        width: 50px;
+        height: 50px;
+        border-radius: 140px;
+        font-size: 30px;
+        font-weight: bold;
+        background-color: white;
+        /* border: 2px solid red; */
+        cursor: pointer;
+        z-index: 1;
+        color: black;
+    }
+    
+    #leftarrow button,
+    #rightarrow button {
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 15px;
+    }
+</style>
 
-<body>
-    <header id="header" class="fixed-top">
+<body onload="show()">
+    <header>
 
-        <div class="openMenu"><i class="fas fa-bars"></i></div>
-        <a href="lakme.html" class="logo"><img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/files/logo_37106f0a-2cdf-4ed0-9a97-33ad520b6682_155x.png?v=1599222024" alt=""></a>
+        <nav id="navbar" class="alignC ">
+            <div class="openMenu" id="openM"><i class="fas fa-bars"></i></div>
+            <a href="lakme.html" class="logo"><img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/files/logo_37106f0a-2cdf-4ed0-9a97-33ad520b6682_155x.png?v=1599222024" alt=""></a>
+            <div class="left alignC flex">
 
-        <div class="left">
+                <a class="far fa-heart" id="wishlistpop" href="wishlist.html"></a>
+                <a class="fas fa-user " id="user" href="lakmeuser.html"></a>
+                <a class="fas fa-search" id="searchi"></a>
+                <a class="fas fa-shopping-bag" id="cart_open"></a>
 
-            <div class="far fa-heart" id="wishlistpop"></div>
-            <div class="fas fa-user " id="user"></div>
-            <div class="fas fa-search" id="searchi"></div>
-            <div class="fas fa-shopping-bag" id="cart_open"></div>
+            </div>
+        </nav>
+
+
+        <div id="hamburger">
+
+
+            <div class="fa fa-times close" id="closeM"></div>
+
+
+            <div id="hamLi" class="alignC">
+                <ul>
+                    <li><a href="lakme.html">HOME</a></li>
+                    <li><a href="lakmeuser.html">SIGN IN OR REGISTER</a></li>
+                    <li><a href="#">YOUR ORDER</a></li>
+                    <li><a href="#">BEST DEALS OR SALES</a></li>
+                    <li><a href="makeup.html">MAKEUP</a></li>
+                    <li><a href="skincare.html">SKIN CARE</a></li>
+                    <li><a href="trends.html">TRENDS</a></li>
+                    <li><a href="trendingproduct.html">Trending Products</a></li>
+                    <li><a href="#">GET THE LOOK</a></li>
+                    <li><a href="#">JOIN THE CLUB</a></li>
+
+                </ul>
+            </div>
 
         </div>
+        <!-- cart  -->
+        <div id="cart_page">
+            <!-- cart_title  -->
+            <div id="cart_header" class="">
+                <p>Cart</p>
+                <!-- cart_close  -->
+                <a id="closeCart"><i class="fa fa-times close"></i></a>
 
-        <div id="cart">
-            <div class="cart_title">
-                <h1>CART</h1>
-                <div href="#" id="cart_close">
-                    <i class="far fa-times-circle"></i></div>
             </div>
+
             <div class="all_cart_items">
             </div>
             <div class="payement">
-                <h4>PAYEMENT DETAILS</h4>
+                <div class="textC" id="patdHeader">
+                    <h2>PAYEMENT DETAILS</h2>
+                </div>
+
                 <div class="summary">
                     <div class="tname_tot">
                         <div class="tname"><b>Bag Toatal</b></div>
@@ -57,15 +176,25 @@
                     </div>
                 </div>
                 <div class="footer">
-                    <button class="sum_total">><i class="fas fa-rupee-sign"></i> 2323</button>
-                    <button class="checkout" onclick="checkout()">Checkout</button>
+
+                    <button class="sum_total"><i class="fas fa-rupee-sign"></i> 2323</button>
+
+                    <button class="checkout"><h3>Checkout></h3></button>
+
+
+
                 </div>
             </div>
+        </div>
+
+        <div id="searchBar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="What are you looking for">
         </div>
     </header>
 
 
-    <div id="searchBar"><i class="fas fa-search" aria-hidden="true"></i><input placeholder="HELLO" type="text"></div>
+    <!-- <div id="searchBar"><i class="fas fa-search" aria-hidden="true"></i><input placeholder="HELLO" type="text"></div> -->
     ​
     <div class="slideshow-container">
 
@@ -131,134 +260,98 @@
     <main>
 
 
-        <button class="arrow" style="visibility: hidden;"><i class="fas fa-arrow-left" aria-hidden="true"></i></button>
-        <button class="arrow"><i class="fas fa-arrow-right" aria-hidden="true"></i></button>
 
-        <!-- div1.append(img1, newtag, product1_name, product1_price, shades, addtobag1); -->
-
-
-
+        <div class="parent">
+            <div id="rightarrow" onclick="moveRight()">
+                <button class="btnarrow">&lt;</button>
+            </div>
 
 
-        <div class="scrollingproduct">
-            <button class="wishlist_ic"> <i class="far fa-heart wishlist"></i></button>
+            <div class="child" id="c1">
+                <a class="wishlist_ic"> <i class="far fa-heart wishlist"></i></a>
+                <a href="productpagenew.html"><img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/products/29158_H2_8901030857867_300x.jpg?v=1630501152" class="productimg" alt=""></a>
+                <p class="newtag">NEW</p>
+                <p class="name">LAKME LIMITED EDITION LIP <br>COLORS</p>
+                <p class="price">₹ 800</p>
 
-            <a href="productpagenew.html"><img class="productimg" src="
-                https://cdn.shopify.com/s/files/1/0014/3514/0183/products/29158_H2_8901030857867_300x.jpg?v=1630501152" alt=""></a>
+                <p class="shadesno"> 25 Shades</p>
+                <button class="viewshades">VIEW SHADES</button>
+            </div>
+            <div class="child" id="c2">
+                <a class="wishlist_ic"> <i class="far fa-heart wishlist"></i></a>
+                <img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/products/24452_S1-8901030742446_300x.jpg?v=1611814486" class="productimg" alt="">
+                <p class="newtag">NEW</p>
+                <p class="name">LAKME LIMITED EDITION LIP <br>COLORS</p>
+                <p class="price">₹ 800</p>
 
-            <p class="newtag">NEW</p>
-            <p class="name">LAKME LIMITED EDITION LIP <br>COLORS</p>
-            <p class="price">₹ 800</p>
+                <p class="shadesno"> 25 Shades</p>
+                <button class="viewshades">VIEW SHADES</button>
+            </div>
+            <div class="child" id="c3">
+                <a class="wishlist_ic"> <i class="far fa-heart wishlist"></i></a>
+                <img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/products/LakmeEyeconicKajalBlack_300x.jpg?v=1606470113" class="productimg" alt="">
+                <p class="newtag">NEW</p>
+                <p class="name">LAKME LIMITED EDITION LIP <br>COLORS</p>
+                <p class="price">₹ 800</p>
 
-            <p class="shadesno"> 25 Shades</p>
-            <button class="viewshades">VIEW SHADES</button>
+                <p class="shadesno"> 25 Shades</p>
+                <button class="viewshades">VIEW SHADES</button>
+            </div>
+            <div class="child" id="c4">
+                <a class="wishlist_ic"> <i class="far fa-heart wishlist"></i></a>
+                <img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/products/29158_H2_8901030857867_300x.jpg?v=1630501152" class="productimg" alt="">
+                <p class="newtag">NEW</p>
+                <p class="name">LAKME LIMITED EDITION LIP <br>COLORS</p>
+                <p class="price">₹ 800</p>
+
+                <p class="shadesno"> 25 Shades</p>
+                <button class="viewshades">VIEW SHADES</button>
+            </div>
+            <div class="child" id="c5">
+                <a class="wishlist_ic"> <i class="far fa-heart wishlist"></i></a>
+                <img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/products/29113_H1-8901030851667_300x.jpg?v=1630492665" class="productimg" alt="">
+                <p class="newtag">NEW</p>
+                <p class="name">LAKME LIMITED EDITION LIP <br>COLORS</p>
+                <p class="price">₹ 800</p>
+
+                <p class="shadesno"> 25 Shades</p>
+                <button class="viewshades">VIEW SHADES</button>
+            </div>
+            <div class="child" id="c6">
+                <a class="wishlist_ic"> <i class="far fa-heart wishlist"></i></a>
+                <img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/products/Redrust_300x.jpg?v=1621226171" class="productimg" alt="">
+                <p class="newtag">NEW</p>
+                <p class="name">LAKME LIMITED EDITION LIP <br>COLORS</p>
+                <p class="price">₹ 800</p>
+
+                <p class="shadesno"> 25 Shades</p>
+                <button class="viewshades">VIEW SHADES</button>
+            </div>
+            <div class="child" id="c7">
+                <a class="wishlist_ic"> <i class="far fa-heart wishlist"></i></a>
+                <img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/products/24990_H2-8901030817496_300x.jpg?v=1620115073" class="productimg" alt="">
+                <p class="newtag">NEW</p>
+                <p class="name">LAKME LIMITED EDITION LIP <br>COLORS</p>
+                <p class="price">₹ 800</p>
+
+                <p class="shadesno"> 25 Shades</p>
+                <button class="viewshades">VIEW SHADES</button>
+            </div>
+            <div class="child" id="c8">
+                <a class="wishlist_ic"> <i class="far fa-heart wishlist"></i></a>
+                <img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/products/29158_H2_8901030857867_300x.jpg?v=1630501152" class="productimg" alt="">
+                <p class="newtag">NEW</p>
+                <p class="name">LAKME LIMITED EDITION LIP <br>COLORS</p>
+                <p class="price">₹ 800</p>
+
+                <p class="shadesno"> 25 Shades</p>
+                <button class="viewshades">VIEW SHADES</button>
+            </div>
+            <div id="leftarrow" onclick="moveLeft()">
+                <button class="btnarrow">&gt;</button>
+            </div>
+
         </div>
-
-        <div class="scrollingproduct">
-            <button class="wishlist_ic"> <i class="far fa-heart wishlist"></i></button>
-            <a href="productpagenew.html"><img class="productimg" src="
-                https://cdn.shopify.com/s/files/1/0014/3514/0183/products/29113_H1-8901030851667_300x.jpg?v=1630492665" alt=""></a>
-
-            <p class="newtag">NEW</p>
-            <p class="name">LAKME LIMITED EDITION LIP <br>COLORS</p>
-            <p class="price">₹ 800</p>
-
-            <p class="shadesno"> 25 Shades</p>
-            <button class="viewshades">VIEW SHADES</button>
-        </div>
-
-
-        <div class="scrollingproduct">
-            <button class="wishlist_ic"> <i class="far fa-heart wishlist"></i></button>
-            <a href="productpagenew.html"><img class="productimg" src="
-                https://cdn.shopify.com/s/files/1/0014/3514/0183/products/29036_H1_8901030837005_300x.jpg?v=1623388003" alt=""></a>
-
-            <p class="newtag">NEW</p>
-            <p class="name">LAKME LIMITED EDITION LIP <br>COLORS</p>
-            <p class="price">₹ 800</p>
-
-            <p class="shadesno"> 25 Shades</p>
-            <button class="viewshades">VIEW SHADES</button>
-        </div>
-
-
-        <div class="scrollingproduct">
-            <button class="wishlist_ic"> <i class="far fa-heart wishlist"></i></button>
-            <a href="productpagenew.html"><img class="productimg" src="
-                https://cdn.shopify.com/s/files/1/0014/3514/0183/products/Lakme9to5Primer_MatteLipColorCoralDate_300x.jpg?v=1621225974" alt=""></a>
-
-            <p class="newtag">NEW</p>
-            <p class="name">LAKME LIMITED EDITION LIP <br>COLORS</p>
-            <p class="price">₹ 800</p>
-
-            <p class="shadesno"> 25 Shades</p>
-            <button class="viewshades">VIEW SHADES</button>
-        </div>
-
-
-
-        <div class="scrollingproduct">
-            <button class="wishlist_ic"> <i class="far fa-heart wishlist"></i></button>
-            <a href="productpagenew.html"><img class="productimg" src="
-                https://cdn.shopify.com/s/files/1/0014/3514/0183/products/24990_H2-8901030817496_300x.jpg?v=1620115073" alt=""></a>
-
-
-            <p class="newtag">NEW</p>
-            <p class="name">LAKME LIMITED EDITION LIP <br>COLORS</p>
-            <p class="price">₹ 800</p>
-
-            <p class="shadesno"> 25 Shades</p>
-            <button class="viewshades">VIEW SHADES</button>
-        </div>
-
-
-
-        <div class="scrollingproduct">
-            <button class="wishlist_ic"> <i class="far fa-heart wishlist"></i></button>
-            <a href="productpagenew.html"><img class="productimg" src="
-                https://cdn.shopify.com/s/files/1/0014/3514/0183/products/LakmeAbsoluteMatteUltimateLipColorwithArganOilPetalPink_41b560b6-3f0d-47b2-bfd5-075cf7bc0934_300x.jpg?v=1601469141" alt=""></a>
-
-
-            <p class="newtag">NEW</p>
-            <p class="name">LAKME LIMITED EDITION LIP <br>COLORS</p>
-            <p class="price">₹ 800</p>
-
-            <p class="shadesno"> 25 Shades</p>
-            <button class="viewshades">VIEW SHADES</button>
-        </div>
-
-
-
-        <div class="scrollingproduct">
-            <button class="wishlist_ic"> <i class="far fa-heart wishlist"></i></button>
-            <a href="productpagenew.html"><img class="productimg" src="
-                https://cdn.shopify.com/s/files/1/0014/3514/0183/products/3_1_300x.jpg?v=1618213371" alt=""></a>
-
-
-            <p class="newtag">NEW</p>
-            <p class="name">LAKME LIMITED EDITION LIP <br>COLORS</p>
-            <p class="price">₹ 800</p>
-
-            <p class="shadesno"> 25 Shades</p>
-            <button class="viewshades">VIEW SHADES</button>
-        </div>
-
-
-
-        <div class="scrollingproduct">
-            <button class="wishlist_ic"> <i class="far fa-heart wishlist"></i></button>
-            <a href="productpagenew.html"><img class="productimg" src="
-                https://cdn.shopify.com/s/files/1/0014/3514/0183/products/29158_H2_8901030857867_300x.jpg?v=1630501152" alt=""></a>
-
-            <p class="newtag">NEW</p>
-            <p class="name">LAKME LIMITED EDITION LIP <br>COLORS</p>
-            <p class="price">₹ 800</p>
-
-            <p class="shadesno"> 25 Shades</p>
-            <button class="viewshades">VIEW SHADES</button>
-        </div>
-
-
 
 
     </main>
