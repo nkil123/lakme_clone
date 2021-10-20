@@ -46,7 +46,7 @@
   <li>Drop Down Hamburgger and Cart functionalities</li>
   <li>Adding elements into wishlist page(through trending page as of present) functionalites</li>
   <li>Sorting functionality according to Price</li>
-  <li>Filter </li>
+  <li>Delete, Increment, Decrement Qunatity</li>
   <li>Functionality to add items to bag</li>
   <li>Functionality to add coupan code and make payment</li>
   <li>Added order placed display functionality</li>
