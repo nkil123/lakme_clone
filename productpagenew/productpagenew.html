@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/f001449fdc.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../main/style.css">
+    <link rel="stylesheet" href="productpagenew.css">
+   
+</head>
+
+<body>
+    <header id="header" class="fixed-top">
+
+        <div class="openMenu"><i class="fas fa-bars"></i></div>
+        <a href="../main/lakme.html" class="logo"><img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/files/logo_37106f0a-2cdf-4ed0-9a97-33ad520b6682_155x.png?v=1599222024" alt=""></a>
+
+        <div class="left">
+
+            <div class="far fa-heart" id="wishlistpop"></div>
+            <div class="fas fa-user "></div>
+            <div class="fas fa-search" id="searchi"></div>
+            <div class="fas fa-shopping-bag" id="cart_open"></div>
+
+        </div>
+
+
+    </header>
+
+
+    <div id="top">
+        <div id="productimg"></div>
+        <div id="productdetails">
+            <div id="nameprice"></div>
+
+            <div id="drop-down">
+                <button id="drop">DropDown</button>
+                <div id="dropdown-menu">
+                    <a href="">Item 1</a>
+                    <a href="">Item 2</a>
+                    <a href="">Item 3</a>
+                    <a href="">Item 4</a>
+                </div>
+            </div>
+            <p>PICK A SHADE</p>
+            <div id="colordetails">
+                <div class="colorbox" id="box1" onclick="changeimg1()"></div>
+                <div class="colorbox" id="box2" onclick="changeimg2()"></div>
+                <div class="colorbox" id="box3" onclick="changeimg3()"></div>
+                <div class="colorbox" id="box4" onclick="changeimg4()"></div>
+                <div class="colorbox" id="box5" onclick="changeimg5()"></div>
+
+            </div>
+            <p>Free Shipping on Orders over 750 <span style='color:black; text-decoration: underline; font-size: 12px'>Details</span></p>
+            <p>Free Shipping on Orders over 750 <span style='color:black; text-decoration: underline; font-size: 12px'>Details</span></p>
+            <p>Quantity</p>
+            <div class="jjj">
+                <div id="btndisplay">
+                    <button class="counterbtn" id="minusbtn" onclick="decreasequantity()">-</button>
+
+                    <div id="quantity">0</div>
+                    <button class="counterbtn" id="plusbtn" onclick="increasequantity()">+</button>
+
+                </div>
+                <button id="addtobag">ADD TO BAG</button>
+            </div>
+            <button id="wishlist"><i class="far fa-heart wishlist"></i> &nbsp; ADD TO WISHLIST</button>
+            <p>⭐⭐⭐⭐⭐ 16 Reviews</p>
+
+        </div>
+    </div>
+    <img id="bottomimg" src="https://cdn.shopify.com/s/files/1/0014/3514/0183/files/970_x_1399_A.jpg?v=1632117163" alt="">
+    <script src="../main/script.js"></script>
+   <script src="productpagenew.js"></script>
+</body>
+
+</html>
+

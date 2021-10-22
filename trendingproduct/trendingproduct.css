@@ -1,0 +1,127 @@
+ .centered {
+     height: 500px;
+     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url("https://cdn.shopify.com/s/files/1/0014/3514/0183/collections/new_arrivals_1600x.png?v=1606486343");
+     background-size: cover;
+     padding-top: 70px;
+ }
+
+ #topimagepara {
+     font-family: "DIN Neuzeit Grotesk", sans-serif;
+     font-weight: 300;
+     font-size: 24px;
+     line-height: 36px;
+     color: white;
+     padding-top: 15%;
+     padding-left: 65%;
+ }
+
+ #comparisonbar {
+     border-top: 1px solid black;
+     border-bottom: 1px solid black;
+     width: 100%;
+     height: 70px;
+     display: flex;
+     margin-top: 2px;
+ }
+
+ .btncompare:nth-of-type(2) {
+     margin-left: 2%;
+     border-left: 1px solid black;
+     padding-left: 2%;
+ }
+
+ .btncompare {
+     border: none;
+     background-color: white;
+     cursor: pointer;
+ }
+
+ #productdetails {
+     margin: 5% 5% 5% 5%;
+     padding-bottom: 20%;
+     display: grid;
+     grid-template-columns: 30% 30% 30%;
+     grid-gap: 8%;
+     justify-content: center;
+     text-align: center;
+ }
+
+ .newtag {
+     font-family: "Futura, sans-serif";
+     font-weight: 600;
+     font-size: 12px;
+     color: #991f53;
+     line-height: 13px;
+ }
+
+ .productbtn {
+     background-color: black;
+     height: 50px;
+     width: 50%;
+     color: white;
+     cursor: pointer;
+ }
+
+ .productbtn:hover {
+     background-color: white;
+     color: black;
+ }
+
+ footer {
+     clear: both;
+     position: relative;
+     background-color: black;
+     height: 100px;
+ }
+
+ #parafooter {
+     color: white;
+ }
+
+ #footerbottom {
+     margin-left: 5%;
+     display: flex;
+     padding-top: 2%;
+ }
+
+ .productname {
+     font-size: 16px;
+ }
+
+ /* Fading animation */
+
+ .fade {
+     -webkit-animation-name: fade;
+     -webkit-animation-duration: 2s;
+     animation-name: fade;
+     animation-duration: 2s;
+ }
+
+ @-webkit-keyframes fade {
+     from {
+         opacity: .4
+     }
+
+     to {
+         opacity: 1
+     }
+ }
+
+ @keyframes fade {
+     from {
+         opacity: .4
+     }
+
+     to {
+         opacity: 1
+     }
+ }
+
+ #sortingbtn {
+     display: flex;
+     margin-left: 80%;
+ }
+
+ .wishlist {
+     cursor: pointer;
+ }

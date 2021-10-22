@@ -1,0 +1,41 @@
+ #shoppingcart {
+     margin: 5% 7% 5% 5%;
+     display: grid;
+     grid-template-columns: 20% 20% 20% 20%;
+     grid-gap: 8%;
+     justify-content: center;
+     text-align: center;
+     padding-bottom: 50px;
+ }
+
+ .wishlishtdiv {
+     border: 1px solid black;
+     width: fit-content;
+ }
+
+ #tophead {
+     font-size: 25px;
+ }
+
+ footer {
+     clear: both;
+     position: relative;
+     background-color: black;
+     height: 100px;
+ }
+
+ #parafooter {
+     color: white;
+ }
+
+ #footerbottom {
+     margin-left: 5%;
+     display: flex;
+     padding-top: 2%;
+ }
+
+ .wishlisticon {
+     position: relative;
+     right: 43%;
+     padding-top: 5%;
+ }
