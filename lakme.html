@@ -10,127 +10,70 @@
     <!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"> -->
 
 
-    <link rel="stylesheet" href="style.css">
-    <script>
-        var left = 1;
-        var right = 4;
+    <link rel="stylesheet" href="main/style.css">
 
-        function show() {
-            for (i = left; i <= right; i++) {
-                document.getElementById("c" + i).style.display = "inline-block"
-            }
-        }
-
-        function moveLeft() {
-            if (left <= 4 && right <= 8) {
-                document.getElementById("c" + left).style.display = "none";
-                left += 1;
-                right += 1;
-                for (i = left; i <= right; i++) {
-                    document.getElementById("c" + i).style.display = "inline-block"
-                }
-
-            } else {
-                return;
-            }
-        }
-
-        function moveRight() {
-            if (left >= 1 && right >= 5) {
-                document.getElementById("c" + right).style.display = "none";
-                left -= 1;
-                right -= 1;
-                for (i = left; i <= right; i++) {
-                    document.getElementById("c" + i).style.display = "inline-block"
-                }
-            } else {
-                return;
-            }
-        }
-    </script>
 </head>
-<style>
-    .parent {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 600px;
 
-    }
-
-    .child {
-        width: 40%;
-        margin-left: 20px;
-        margin-right: 20px;
-        display: none;
-
-        color: rgb(126, 15, 15);
-        /* left: 0; */
-        text-align: center;
-        transition: 0.5s;
-    }
-
-    .child img {
-        height: 300px;
-        width: 100%;
-    }
-
-    #leftarrow #rightarrow {
-        margin-left: 12px;
-        margin: 3%;
-        display: inline-block;
-
-    }
-
-    .btnarrow {
-        width: 50px;
-        height: 50px;
-        border-radius: 140px;
-
-        font-size: 30px;
-        font-weight: bold;
-        background-color: white;
-        /* border: 2px solid red; */
-        cursor: pointer;
-        z-index: 1;
-        color: black;
-    }
-
-    #leftarrow button,
-    #rightarrow button {
-        font-weight: bold;
-        cursor: pointer;
-        font-size: 15px;
-    }
-</style>
 
 <body onload="show()">
-    <header id="header" class="fixed-top">
+    <header>
 
-        <div class="openMenu"><i class="fas fa-bars"></i></div>
-        <a href="lakme.html" class="logo"><img
-                src="https://cdn.shopify.com/s/files/1/0014/3514/0183/files/logo_37106f0a-2cdf-4ed0-9a97-33ad520b6682_155x.png?v=1599222024"
-                alt=""></a>
+        <nav id="navbar" class="alignC ">
+            <div class="openMenu" id="openM"><i class="fas fa-bars"></i></div>
+            <a href="lakme.html" class="logo"><img
+                    src="https://cdn.shopify.com/s/files/1/0014/3514/0183/files/logo_37106f0a-2cdf-4ed0-9a97-33ad520b6682_155x.png?v=1599222024"
+                    alt=""></a>
+            <div class="left alignC flex">
 
-        <div class="left">
+                <a class="far fa-heart" id="wishlistpop" href="../wishlist/wishlist.html"></a>
+                <a class="fas fa-user" id="user" href="../lakmeuser/lakmeuser.html"></a>
+                <a class="fas fa-search" id="searchi"></a>
+                <a class="fas fa-shopping-bag" id="cart_open"></a>
 
-            <div class="far fa-heart" id="wishlistpop"></div>
-            <div class="fas fa-user " id="user"></div>
-            <div class="fas fa-search" id="searchi"></div>
-            <div class="fas fa-shopping-bag" id="cart_open"></div>
+            </div>
+        </nav>
+
+
+        <div id="hamburger">
+
+
+            <div class="fa fa-times close" id="closeM"></div>
+
+
+            <div id="hamLi" class="alignC">
+                <ul>
+                    <li><a href="lakme.html">HOME</a></li>
+                    <li><a href="/lakmeuser/lakmeuser.html">SIGN IN OR REGISTER</a></li>
+                    <li><a href="#">YOUR ORDER</a></li>
+                    <li><a href="../sale/sale.html">BEST DEALS OR SALES</a></li>
+                    <li><a href="../makeup/makeup.html">MAKEUP</a></li>
+                    <li><a href="/skincare/skincare.html">SKIN CARE</a></li>
+                    <li><a href="/trends/trends.html">TRENDS</a></li>
+                    <li><a href="../trendingproduct/trendingproduct.html">Trending Products</a></li>
+                    <li><a href="#">GET THE LOOK</a></li>
+                    <li><a href="#">JOIN THE CLUB</a></li>
+
+                </ul>
+            </div>
 
         </div>
+        <!-- cart  -->
+        <div id="cart_page">
+            <!-- cart_title  -->
+            <div id="cart_header" class="">
+                <p>Cart</p>
+                <!-- cart_close  -->
+                <a id="closeCart"><i class="fa fa-times close"></i></a>
 
-        <div id="cart">
-            <div class="cart_title">
-                <h1>CART</h1>
-                <div href="#" id="cart_close">
-                    <i class="far fa-times-circle"></i></div>
             </div>
+
             <div class="all_cart_items">
             </div>
             <div class="payement">
-                <h4>PAYEMENT DETAILS</h4>
+                <div class="textC" id="patdHeader">
+                    <h2>PAYEMENT DETAILS</h2>
+                </div>
+
                 <div class="summary">
                     <div class="tname_tot">
                         <div class="tname"><b>Bag Toatal</b></div>
@@ -150,15 +93,27 @@
                     </div>
                 </div>
                 <div class="footer">
-                    <button class="sum_total">><i class="fas fa-rupee-sign"></i> 2323</button>
-                    <button class="checkout" onclick="checkout()">Checkout</button>
+
+                    <button class="sum_total"><i class="fas fa-rupee-sign"></i>0</button>
+
+                    <button class="checkout">
+                        <h3>Checkout></h3>
+                    </button>
+
+
+
                 </div>
             </div>
+        </div>
+
+        <div id="searchBar">
+            <i class="fas fa-search"></i>
+            <input type="text" placeholder="What are you looking for">
         </div>
     </header>
 
 
-    <div id="searchBar"><i class="fas fa-search" aria-hidden="true"></i><input placeholder="HELLO" type="text"></div>
+    <!-- <div id="searchBar"><i class="fas fa-search" aria-hidden="true"></i><input placeholder="HELLO" type="text"></div> -->
     ​
     <div class="slideshow-container">
 
@@ -238,8 +193,8 @@
 
 
             <div class="child" id="c1">
-                <button class="wishlist_ic"> <i class="far fa-heart wishlist"></i></button>
-                <a href="productpagenew.html"><img
+                <div class=" wishlist"><a class="wishlist_ic far fa-heart"> </a></div>
+                <a href="productpagenew/productpagenew.html"><img
                         src="https://cdn.shopify.com/s/files/1/0014/3514/0183/products/29158_H2_8901030857867_300x.jpg?v=1630501152"
                         class="productimg" alt=""></a>
                 <p class="newtag">NEW</p>
@@ -250,7 +205,7 @@
                 <button class="viewshades">VIEW SHADES</button>
             </div>
             <div class="child" id="c2">
-                <button class="wishlist_ic"> <i class="far fa-heart wishlist"></i></button>
+                <a class="wishlist_ic"> <i class="far fa-heart wishlist"></i></a>
                 <img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/products/24452_S1-8901030742446_300x.jpg?v=1611814486"
                     class="productimg" alt="">
                 <p class="newtag">NEW</p>
@@ -261,7 +216,7 @@
                 <button class="viewshades">VIEW SHADES</button>
             </div>
             <div class="child" id="c3">
-                <button class="wishlist_ic"> <i class="far fa-heart wishlist"></i></button>
+                <a class="wishlist_ic"> <i class="far fa-heart wishlist"></i></a>
                 <img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/products/LakmeEyeconicKajalBlack_300x.jpg?v=1606470113"
                     class="productimg" alt="">
                 <p class="newtag">NEW</p>
@@ -272,7 +227,7 @@
                 <button class="viewshades">VIEW SHADES</button>
             </div>
             <div class="child" id="c4">
-                <button class="wishlist_ic"> <i class="far fa-heart wishlist"></i></button>
+                <a class="wishlist_ic"> <i class="far fa-heart wishlist"></i></a>
                 <img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/products/29158_H2_8901030857867_300x.jpg?v=1630501152"
                     class="productimg" alt="">
                 <p class="newtag">NEW</p>
@@ -283,7 +238,7 @@
                 <button class="viewshades">VIEW SHADES</button>
             </div>
             <div class="child" id="c5">
-                <button class="wishlist_ic"> <i class="far fa-heart wishlist"></i></button>
+                <a class="wishlist_ic"> <i class="far fa-heart wishlist"></i></a>
                 <img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/products/29113_H1-8901030851667_300x.jpg?v=1630492665"
                     class="productimg" alt="">
                 <p class="newtag">NEW</p>
@@ -294,7 +249,7 @@
                 <button class="viewshades">VIEW SHADES</button>
             </div>
             <div class="child" id="c6">
-                <button class="wishlist_ic"> <i class="far fa-heart wishlist"></i></button>
+                <a class="wishlist_ic"> <i class="far fa-heart wishlist"></i></a>
                 <img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/products/Redrust_300x.jpg?v=1621226171"
                     class="productimg" alt="">
                 <p class="newtag">NEW</p>
@@ -305,7 +260,7 @@
                 <button class="viewshades">VIEW SHADES</button>
             </div>
             <div class="child" id="c7">
-                <button class="wishlist_ic"> <i class="far fa-heart wishlist"></i></button>
+                <a class="wishlist_ic"> <i class="far fa-heart wishlist"></i></a>
                 <img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/products/24990_H2-8901030817496_300x.jpg?v=1620115073"
                     class="productimg" alt="">
                 <p class="newtag">NEW</p>
@@ -316,7 +271,7 @@
                 <button class="viewshades">VIEW SHADES</button>
             </div>
             <div class="child" id="c8">
-                <button class="wishlist_ic"> <i class="far fa-heart wishlist"></i></button>
+                <a class="wishlist_ic"> <i class="far fa-heart wishlist"></i></a>
                 <img src="https://cdn.shopify.com/s/files/1/0014/3514/0183/products/29158_H2_8901030857867_300x.jpg?v=1630501152"
                     class="productimg" alt="">
                 <p class="newtag">NEW</p>
@@ -472,7 +427,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="main/script.js"></script>
 </body>
 
 </html>
