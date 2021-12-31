@@ -16,7 +16,7 @@
             if (element.email === email && element.password == password) {
 
                 result = true
-                window.location.href = "../main/lakme.html"
+                window.location.href = "../index.html"
 
 
             }
